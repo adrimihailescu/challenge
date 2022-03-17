@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductsList from "./ProductsList/ProductsList";
 import Search from "./Search/Search";
 
 const ProductsMenu = () => {
+	const [searchResult, setSearchResult] = useState();
 	return (
 		<div className="col-4">
-			<Search />
-			<ProductsList />
+			<Search setSearchResultData={setSearchResult} />
+			<ProductsList searchResultData={searchResult} />
 		</div>
 	);
 };
