@@ -19,10 +19,6 @@ export default () => (
 				</div>
 			</div>
 		</div>
-		<div className="container menu-builder">
-			<div className="row">
-				<MenuBuilder />
-			</div>
-		</div>
+		<MenuBuilder />
 	</div>
 );
