@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MenuItem from "../../MenuItem/MenuItem";
 import { fetchData } from "../../../helpers";
 
-const ProductsList = ({ searchResultData }) => {
+const ProductsList = ({ searchResultData, addItem }) => {
 	const [items, setItems] = useState();
 
 	useEffect(() => {
@@ -14,11 +14,14 @@ const ProductsList = ({ searchResultData }) => {
 	}, []);
 
 	const outputData = searchResultData ? searchResultData : items;
+
 	return (
 		<ul className="item-picker">
 			{outputData &&
 				outputData.map((item) => {
-					return <MenuItem />;
+					return (
+						<MenuItem key={`item-${item.id}`} item={item} addItem={addItem} />
+					);
 				})}
 		</ul>
 	);

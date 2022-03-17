@@ -2,12 +2,17 @@ import React from "react";
 import ProductsMenu from "../ProductsMenu";
 import MenuPreview from "../MenuPreview/MenuPreview";
 
-const MenuBuilder = () => {
+//container for ProductsList and menuPreview
+
+const MenuBuilder = ({ menuBuilderItems, addItem, removeItem }) => {
 	return (
 		<div className="container menu-builder">
 			<div className="row">
-				<ProductsMenu />
-				<MenuPreview />
+				<ProductsMenu addItem={addItem} />
+				<MenuPreview
+					removeItem={removeItem}
+					menuBuilderItems={menuBuilderItems}
+				/>
 			</div>
 		</div>
 	);

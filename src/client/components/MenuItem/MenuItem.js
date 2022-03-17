@@ -1,14 +1,22 @@
 import React from "react";
 
-const MenuItem = () => {
+const MenuItem = ({ item, addItem, removeItem }) => {
+	const { id, name, dietaries } = item;
 	return (
-		<li className="item">
-			<h2>Dummy item</h2>
+		<li className="item" onClick={() => !removeItem && addItem(item)}>
+			<h2>{name}</h2>
 			<p>
-				<span className="dietary">ve</span>
-				<span className="dietary">v</span>
-				<span className="dietary">n!</span>
+				{dietaries.map((diet) => (
+					<span key={`${item.id}-${diet}`} className="dietary">
+						{diet}
+					</span>
+				))}
 			</p>
+			{removeItem && (
+				<button className="remove-item" onClick={() => removeItem(id)}>
+					x
+				</button>
+			)}
 		</li>
 	);
 };

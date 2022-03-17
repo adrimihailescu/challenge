@@ -1,12 +1,19 @@
 import React from "react";
 import MenuItem from "../MenuItem/MenuItem";
 
-const MenuPreview = () => {
+const MenuPreview = ({ menuBuilderItems, removeItem }) => {
 	return (
 		<div className="col-8">
-			<h2>Menu preview</h2>
+			<h2>MenuPreview</h2>
 			<ul className="menu-preview">
-				<MenuItem />
+				{menuBuilderItems &&
+					menuBuilderItems.map((menuItem) => (
+						<MenuItem
+							key={`menu-${menuItem.id}-${Math.random()}`}
+							item={menuItem}
+							removeItem={removeItem}
+						/>
+					))}
 			</ul>
 		</div>
 	);
