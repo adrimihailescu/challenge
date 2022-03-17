@@ -1,17 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const MenuSummary = () => {
+const MenuSummary = ({ menuBuilderItems }) => {
+	const [diets, setDiets] = useState();
+
+	const dietSummary = () => {
+		const result = {};
+		menuBuilderItems.forEach((el) => {
+			const diets = el.dietaries;
+			for (const i in diets) {
+				if (result[diets[i]] === undefined) {
+					result[diets[i]] = 1;
+				} else {
+					result[diets[i]]++;
+				}
+			}
+		});
+		console.log(result);
+		return result;
+	};
+
+	useEffect(() => {
+		setDiets(dietSummary());
+	}, [menuBuilderItems]);
+
 	return (
 		<div className="menu-summary">
 			<div className="container">
 				<div className="row">
 					<div className="col-6 menu-summary-left">
-						<span>6 items</span>
+						{menuBuilderItems.length > 0 && (
+							<span>{`${menuBuilderItems.length} ${
+								menuBuilderItems.length !== 1 ? "items" : "item"
+							}`}</span>
+						)}
 					</div>
 					<div className="col-6 menu-summary-right">
-						6x <span className="dietary">ve</span>
-						4x <span className="dietary">v</span>
-						12x <span className="dietary">n!</span>
+						{diets &&
+							Object.keys(diets).map((key) => (
+								<span key={`diet-type-${key}`}>
+									{`${diets[key]} x`}
+									<span className="dietary">{key}</span>
+								</span>
+							))}
 					</div>
 				</div>
 			</div>
