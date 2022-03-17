@@ -13,6 +13,7 @@ const ProductsList = ({ searchResultData, addItem }) => {
 		getData();
 	}, []);
 
+	//will display the items or only the result of search
 	const outputData = searchResultData ? searchResultData : items;
 
 	return (

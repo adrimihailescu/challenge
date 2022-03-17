@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+//Show the total number of selected items in the header
+// Show the total number of each dietary type selected in the header
+
 const MenuSummary = ({ menuBuilderItems }) => {
 	const [diets, setDiets] = useState();
 
@@ -23,6 +26,10 @@ const MenuSummary = ({ menuBuilderItems }) => {
 		setDiets(dietSummary());
 	}, [menuBuilderItems]);
 
+	//left hand side will update at the same time as we add a product from the ProductList through 'menuBuilderItems'
+
+	//right hand side in the header will be updated through state
+
 	return (
 		<div className="menu-summary">
 			<div className="container">
@@ -34,6 +41,7 @@ const MenuSummary = ({ menuBuilderItems }) => {
 							}`}</span>
 						)}
 					</div>
+
 					<div className="col-6 menu-summary-right">
 						{diets &&
 							Object.keys(diets).map((key) => (

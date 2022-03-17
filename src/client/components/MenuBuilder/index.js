@@ -3,6 +3,7 @@ import ProductsMenu from "../ProductsMenu";
 import MenuPreview from "../MenuPreview/MenuPreview";
 
 //container for ProductsList and menuPreview
+//receives information from App,state and props
 
 const MenuBuilder = ({ menuBuilderItems, addItem, removeItem }) => {
 	return (

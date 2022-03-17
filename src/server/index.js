@@ -4,6 +4,8 @@ const cors = require("cors");
 
 const app = express();
 
+//had to install cors to fix an error in the console, without it I couldn't receive the data
+
 const corsOptions = {
 	origin: "http://localhost:3000",
 	optionSuccessStatus: 200,

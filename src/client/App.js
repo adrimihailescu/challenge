@@ -16,6 +16,8 @@ export default () => {
 			setMenuBuilderItems((menuBuilderItems) => [...menuBuilderItems, item]);
 		}
 	};
+
+	//remove items from the MenuPreview
 	const removeFromMenuHandler = (id) => {
 		const removedMenuBuilderItems = menuBuilderItems.filter(
 			(item) => item.id !== id

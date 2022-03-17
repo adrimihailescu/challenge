@@ -4,6 +4,8 @@ import { fetchData } from "../../../helpers";
 
 const Search = ({ setSearchResultData }) => {
 	const [searchTerm, setSearchTerm] = useState();
+
+	//useDebounce - to avoid too many api calls, the request will be sent once the user finishes typing
 	const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
 	const onCHangeHandler = (event) => {
